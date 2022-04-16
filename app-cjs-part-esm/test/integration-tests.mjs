@@ -3,7 +3,7 @@ import {expect} from 'chai'
 import createApp from '../src/server.mjs'
 import {getJson, deleteRequest, postJson, putJson} from './http-utils.js'
 
-describe('integration tests ()', function () {
+describe('integration tests', function () {
   before(async () => {
     await createApp().listen(3000)
   })

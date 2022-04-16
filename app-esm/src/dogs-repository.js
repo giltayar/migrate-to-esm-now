@@ -1,12 +1,12 @@
-const {makeDatabase} = require('./json-database')
-const {randomUUID} = require('crypto')
-const {makeMutex} = require('./mutex')
+import {makeDatabase} from './json-database.js'
+import {randomUUID} from 'crypto'
+import {makeMutex} from './mutex.js'
 
 const db = makeDatabase('.db/dogs.json')
 
 const mutex = makeMutex()
 
-module.exports.getDog = async function (id) {
+export async function getDog (id) {
   await mutex.lock()
 
   try {
@@ -18,7 +18,7 @@ module.exports.getDog = async function (id) {
   }
 }
 
-module.exports.getDogs = async function (id) {
+export async function getDogs (id) {
   await mutex.lock()
 
   try {
@@ -30,7 +30,7 @@ module.exports.getDogs = async function (id) {
   }
 }
 
-module.exports.getPuppies = async function (parentId) {
+export async function getPuppies (parentId) {
   await mutex.lock()
 
   try {
@@ -46,7 +46,7 @@ module.exports.getPuppies = async function (parentId) {
   }
 }
 
-module.exports.addDog = async function (dog) {
+export async function addDog (dog) {
   const id = randomUUID()
 
   await db.addRow({id, ...dog, puppies: []})
@@ -54,7 +54,7 @@ module.exports.addDog = async function (dog) {
   return id
 }
 
-module.exports.giveBirthToPuppy = async function (puppy, parentId) {
+export async function giveBirthToPuppy (puppy, parentId) {
   await mutex.lock()
 
   try {
@@ -74,7 +74,7 @@ module.exports.giveBirthToPuppy = async function (puppy, parentId) {
   }
 }
 
-module.exports.deleteDog = async function (id) {
+export async function deleteDog (id) {
   await mutex.lock()
 
   try {
@@ -99,7 +99,7 @@ module.exports.deleteDog = async function (id) {
   }
 }
 
-module.exports.updateDog = async function (id, updatedDog) {
+export async function updateDog (id, updatedDog) {
   await mutex.lock()
 
   try {
