@@ -1,0 +1,13 @@
+{
+  "name": "use-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "npm link ../lib-esm",
+    "start": "node src/use-cjs.cjs && node src/use-esm.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

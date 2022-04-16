@@ -1,0 +1,24 @@
+{
+  "name": "json-database-esm",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "exports": {
+    "require": "./dist-cjs/json-database.cjs",
+    "import": "./src/json-database.js"
+  },
+  "scripts": {
+    "build": "esbuild src/*.js --outdir=dist-cjs --format=cjs --platform=node --out-extension:.js=.cjs",
+    "test": "npm run mocha",
+    "mocha": "mocha --exit --no-timeout test/*.js test/*.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "esbuild": "^0.14.36",
+    "mocha": "^9.2.2"
+  }
+}
