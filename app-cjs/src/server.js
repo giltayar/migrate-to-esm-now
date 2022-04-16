@@ -1,5 +1,5 @@
-const fastify = require( 'fastify')
-const dogs = require('./dogs-repository.js')
+const fastify = require('fastify')
+const dogs = require('./dogs-repository')
 
 module.exports = function createApp() {
   const app = fastify()
@@ -42,7 +42,6 @@ module.exports = function createApp() {
 
     return await dogs.getPuppies(id)
   })
-
 
   app.post('/api/dogs/:id/puppies', async (req) => {
     const {id} = req.params
