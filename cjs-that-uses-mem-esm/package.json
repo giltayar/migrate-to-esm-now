@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js && node index.cjs || node index-with-dynamic-import.cjs"
   },
   "keywords": [],
   "author": "",

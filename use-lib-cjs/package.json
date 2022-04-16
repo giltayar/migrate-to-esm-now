@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "npm link ../lib-cjs"
+    "prepare": "npm link ../lib-cjs",
+    "start": "node src/use-cjs.js"
   },
   "keywords": [],
   "author": "",
